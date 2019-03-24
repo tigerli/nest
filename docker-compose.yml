@@ -2,7 +2,7 @@ version: '2'
 services:
   console:
     build: 
-      context: ./images/console
+      context: ./services/console
       dockerfile: Dockerfile
     volumes_from:
       - php
@@ -16,10 +16,10 @@ services:
     volumes_from:
       - php
     volumes:
-      - ./images/nginx/config:/etc/nginx/conf.d
+      - ./services/nginx/config:/etc/nginx/conf.d
   php: 
     build:
-      context: ./images/php/7.1-fpm
+      context: ./services/php/7.1-fpm
       dockerfile: Dockerfile
     volumes:
       - ./app:/mnt/app
@@ -32,6 +32,13 @@ services:
       MYSQL_PASSWORD: "123456"
     volumes:
       - db:/var/lib/mysql
+  mysql:
+    image: mysql:5.6
+    envronment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "app"
+      MYSQL_USER: "app"
+      MYSQL_PASSWORD: "123456"
 volumes:
   db:
     driver: local
