@@ -19,7 +19,7 @@ services:
       - ./images/nginx/config:/etc/nginx/conf.d
   php: 
     build:
-      context: ./images/php/7.0-fpm
+      context: ./images/php/7.1-fpm
       dockerfile: Dockerfile
     volumes:
       - ./app:/mnt/app
