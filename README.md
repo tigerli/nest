@@ -2,5 +2,5 @@
 ```
 /app --- 项目目录
 /services --- 容器服务目录
-docker-composer.yml --- Docker Compose 的核心就是其配置文件
+docker-composer.yml --- Docker Compose 核心配置文件
 ```
